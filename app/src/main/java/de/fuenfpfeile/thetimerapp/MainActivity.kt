@@ -1,5 +1,6 @@
 package de.fuenfpfeile.thetimerapp
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -27,7 +28,12 @@ class MainActivity : AppCompatActivity() {
         sharedPref.getString("targetTimeStr", null)?.let { Log.d("string::::::::", it) }
 
         targetTime = if (sharedPref.getString("targetTimeStr", null) != null) {
-            LocalDateTime.parse(sharedPref.getString("targetTimeStr", LocalDateTime.now().toString()))
+            LocalDateTime.parse(
+                sharedPref.getString(
+                    "targetTimeStr",
+                    LocalDateTime.now().toString()
+                )
+            )
         } else {
             LocalDateTime.now()
         }
@@ -39,8 +45,18 @@ class MainActivity : AppCompatActivity() {
             startTimer(tv_countdown, year, month + 1, dayOfMonth, sharedPref)
         }
 
-        calendarView.setDate(targetTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(), true, true)
-        startTimer(tv_countdown, targetTime.year, targetTime.monthValue, targetTime.dayOfMonth, sharedPref)
+        calendarView.setDate(
+            targetTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(),
+            true,
+            true
+        )
+        startTimer(
+            tv_countdown,
+            targetTime.year,
+            targetTime.monthValue,
+            targetTime.dayOfMonth,
+            sharedPref
+        )
     }
 
     fun startTimer(textView: TextView, year: Int, month: Int, dayOfMonth: Int, sharedPref: SharedPreferences) {
