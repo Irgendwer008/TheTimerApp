@@ -9,11 +9,12 @@
         style="@style/Widget.TheTimerApp.AppWidget.InnerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
         android:layout_margin="8dp"
+        android:backgroundTint="@color/icon_background"
         android:contentDescription="@string/appwidget_text"
         android:text="@string/appwidget_text"
-        android:textSize="24sp"
+        android:textColor="@color/icon_foreground"
+        android:textSize="30sp"
         android:textStyle="bold|italic" />
 </RelativeLayout>

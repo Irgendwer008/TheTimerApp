@@ -1,23 +1,18 @@
 package de.fuenfpfeile.thetimerapp
 
+import android.app.PendingIntent
 import android.app.Service
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.CountDownTimer
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import android.util.Log
 import android.widget.RemoteViews
 import com.example.thetimerapp.R
-import java.text.SimpleDateFormat
 import java.time.Duration
 import java.time.LocalDateTime
-import java.util.Date
-import java.util.Locale
-
 
 
 class UpdateService : Service() {
@@ -80,10 +75,10 @@ class UpdateService : Service() {
             val second_string = seconds.toString().padStart(2, '0')
 
             if (days > 1L) {
-                views.setTextViewText(R.id.appwidget_text, "$day_string Tage, $hour_string:$minute_string:$second_string")
+                views.setTextViewText(R.id.appwidget_text, "$day_string Tage $hour_string:$minute_string:$second_string")
             }
             else if (days == 1L) {
-                views.setTextViewText(R.id.appwidget_text, "1 Tag, $hour_string:$minute_string:$second_string")
+                views.setTextViewText(R.id.appwidget_text, "1 Tag $hour_string:$minute_string:$second_string")
             }
             else {
                 views.setTextViewText(R.id.appwidget_text, "$hour_string:$minute_string:$second_string")
@@ -92,6 +87,15 @@ class UpdateService : Service() {
             // If the selected date is in the past
             views.setTextViewText(R.id.appwidget_text, "Datum liegt in der Vergangenheit!")
         }
+
+        // Create an Intent to launch ExampleActivity
+        val intent = Intent(this, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+
+
+        // Get the layout for the App Widget and attach an on-click listener
+        // to the button
+        views.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent)
 
         // Push the update to the widget
         val appWidgetManager = AppWidgetManager.getInstance(this)
