@@ -17,4 +17,8 @@ class WidgetProvider : AppWidgetProvider() {
         // Optionally stop the service when the widget is removed from the home screen
         context?.stopService(Intent(context, UpdateService::class.java))
     }
+
+    override fun onReceive(context: Context?, intent: Intent?) {
+        super.onReceive(context, intent)
+    }
 }
