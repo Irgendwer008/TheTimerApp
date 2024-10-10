@@ -1,4 +1,4 @@
-package com.example.thetimerapp
+package de.fuenfpfeile.thetimerapp
 
 import org.junit.Test
 

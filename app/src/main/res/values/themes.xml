@@ -1,8 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TheTimerApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.TheTimerApp" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary branding color (used for the app bar, etc.) -->
+        <item name="colorPrimary">@color/material_dynamic_primary50</item>
+        <item name="colorAccent">@color/material_dynamic_secondary50</item>
+        <!-- Secondary branding color -->
+        <item name="colorPrimaryVariant">@color/material_dynamic_primary70</item>
+        <!-- Text and icon color for primary branding color -->
+        <item name="colorOnPrimary">@color/design_default_color_on_primary</item>
+        <!-- Background color -->
+        <item name="android:windowBackground">@color/design_default_color_background</item>
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="Theme.TheTimerApp" parent="Base.Theme.TheTimerApp" />

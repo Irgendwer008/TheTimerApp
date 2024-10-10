@@ -1,1 +1,4 @@
 /build
+*.bin
+*.hash
+*.lock
