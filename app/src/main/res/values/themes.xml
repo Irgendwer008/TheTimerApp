@@ -10,7 +10,7 @@
         <item name="colorOnPrimary">@color/design_default_color_on_primary</item>
         <!-- Background color -->
         <item name="android:windowBackground">@color/design_default_color_background</item>
-        <item name="android:forceDarkAllowed" tools:ignore="NewApi">true</item>
+        <item name="android:forceDarkAllowed">true</item>
     </style>
 
     <style name="Theme.TheTimerApp" parent="Base.Theme.TheTimerApp" />
